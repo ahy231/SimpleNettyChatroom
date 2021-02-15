@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎注册myChat账号</title>
+
+    <script th:src="@{/asserts/js/jquery-2.1.4.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/asserts/css/bootstrap.min.css}">
+    <script th:src="@{/asserts/js/bootstrap.min.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/asserts/css/register.css}">
+    <script th:src="@{/asserts/js/register.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/asserts/css/font-awesome.css}">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+</head>
+<body>
+<div id="back">
+    <div class="center">
+        <div class="box center">
+            <h1 class="my-title">创建属于你的账号！</h1>
+            <form method="post" th:action="@{/register}">
+                <input hidden="hidden" type="text" name="_method" value="put">
+                <div class="my-input-group">
+                    <div class="my-row">
+                        <input type="text" name="username" placeholder="用户名" required="required">
+                        <span class="fa fa-user-circle-o" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-row">
+                        <input type="password" name="password" placeholder="密码"
+                               required="required">
+                        <span class="fa fa-key" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-row">
+                        <input type="password" name="password" placeholder="重复密码"
+                               required="required">
+                        <span class="fa fa-key" aria-hidden="true"></span>
+                    </div>
+                    <div class="my-row">
+                        <input type="password" name="password" placeholder="手机号（方便朋友找到你）">
+                        <span class="fa fa-phone" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <input type="submit" class="btn btn-light btn-outline-dark my-btn" value="注册">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
