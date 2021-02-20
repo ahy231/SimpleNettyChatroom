@@ -85,6 +85,10 @@ $(function () {
             $(nameSpan).css("color", "red");
         }
 
+        function anotherUserNamePackage(nameSpan) {
+            $(nameSpan).css("color", "green");
+        }
+
         socket = new WebSocket(webSocketUrl)
         socket.onopen = function (ev) {
             addCard("系统小助手", "通信打开了...", systemNamePackage)
@@ -93,7 +97,17 @@ $(function () {
             addCard("系统小助手", "通信关闭了...", systemNamePackage)
         }
         socket.onmessage = function (ev) {
-            addCard(checked, ev.data)
+            const content = ev.data;
+            const index = content.indexOf('$');
+            const user = content.substring(0, index);
+            const text = content.substring(index + 1);
+            if (user === checked) {
+                addCard(user, text);
+            } else if (user === "系统小助手") {
+                addCard(user, text, systemNamePackage);
+            } else {
+                addCard(user, "给你发了一条信息：" + text, anotherUserNamePackage);
+            }
         }
     } else {
         alert("浏览器不支持WebSocket！\n请升级浏览器或更换浏览器。");
@@ -173,39 +187,6 @@ function btn_factory(list, nameStr, phoneStr, ...classes) {
     list.appendChild(btn);
     return btn;
 }
-
-/*
-function send() {
-    $(function () {
-
-        function packageName(nameSpan) {
-            $(nameSpan).css('color', 'orange');
-        }
-
-        toggleDisabled($('#send_btn'));
-        const username = $('#user-name-label').text();
-        const text = $('#my_textarea').val();
-        $.ajax({
-            url: url + "/user/send",
-            method: "post",
-            async: true,
-            data: {
-                // username: username,
-                text: text,
-                to: checked
-            },
-            success: function (e) {
-                if (e !== "OK") {
-                    alert("发送失败！");
-                } else {
-                    $('#my_textarea').val("");
-                }
-                addCard(username, text, packageName);
-            }
-        })
-    })
-}
-*/
 
 function toggleDisabled(jquery_obj) {
     if (!jquery_obj.hasClass('disabled')) {

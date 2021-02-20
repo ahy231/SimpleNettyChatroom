@@ -24,18 +24,27 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<TextWebSocke
     private SocketAddress address;
 
     @Override
-    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        log.info("channel registered!");
+    public void channelRegistered(ChannelHandlerContext ctx) {
+//        log.info("channel registered!");
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("channel active!");
+    public void channelActive(ChannelHandlerContext ctx) {
+//        log.info("channel active!");
     }
 
     @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        log.info("read completed!");
+    public void channelReadComplete(ChannelHandlerContext ctx) {
+//        log.info("read completed!");
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) {
+        channelMap.remove(username);
+        for (Map.Entry<String, Channel> entry :
+                channelMap.entrySet()) {
+            entry.getValue().writeAndFlush("系统小助手$" + username + " 下线了！");
+        }
     }
 
     private void loginHandler(Channel channel, String s) {
@@ -49,7 +58,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<TextWebSocke
         Channel channel = ctx.channel();
         String s = msg.text();
 
-        System.out.println(s);
+//        System.out.println(s);
 
         if (s.startsWith("$")) { // rpc
             s = s.substring(1);
@@ -57,17 +66,17 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<TextWebSocke
                 s = s.substring("login".length());
                 loginHandler(channel, s);
             }
-            log.info(s + "registered!");
+//            log.info(s + " registered!");
         } else { // chat
             JSONObject jsonObject = JSON.parseObject(s);
             String to = jsonObject.getString("to");
             String text = jsonObject.getString("text");
             Channel channelTo = channelMap.get(to);
             if (channelTo == null) {
-                log.warn("channelTo is null");
+//                log.warn("channelTo is null");
             } else {
-                channelTo.writeAndFlush(new TextWebSocketFrame(text));
-                log.info("channelTo.writeAndFlush(" + text + ")");
+                channelTo.writeAndFlush(new TextWebSocketFrame(username + "$" + text));
+//                log.info("channelTo.writeAndFlush(" + text + ")");
             }
         }
     }
