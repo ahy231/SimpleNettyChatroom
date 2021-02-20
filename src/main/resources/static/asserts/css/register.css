@@ -1,0 +1,65 @@
+#back {
+    background-image: linear-gradient(to right bottom, rgb(153, 204, 255), rgb(255,255,204), rgb(255,204,153));
+    height: 720px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.box {
+    margin: 100px auto;
+    height: 500px;
+    width: 50%;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.center {
+    text-align: center;
+}
+
+.my-title {
+    margin: 0 auto;
+    padding-top: 40px;
+    color: orangered;
+    font-family: Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;
+    font-size: 35px;
+}
+
+.my-input-group {
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.my-input-group .my-row {
+    margin: 20px auto;
+    width: 50%;
+    height: 50px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.my-input-group input {
+    margin: 9px 0 0 10px;
+    text-align: left;
+    font-size: 18px;
+    float: left;
+    width: 86%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.my-input-group .fa {
+    margin: 15px 10px;
+    float: right;
+    width: 20px;
+}
+
+.box form .my-btn {
+    margin: 15px 10px;
+    width: 130px;
+    height: 50px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d66644), color-stop(50%, #d71313), color-stop(100%,#d93a49));
+}

@@ -1,0 +1,120 @@
+#back {
+    background-image: linear-gradient(to right bottom, rgb(153, 204, 255), rgb(255,255,204), rgb(255,204,153));
+    height: 720px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.box {
+    margin: 50px auto;
+    height: 600px;
+    width: 60%;
+    background-color: rgba(255,255,255,0.7);
+    outline: solid black 3px;
+}
+
+.center {
+    text-align: center;
+}
+
+.my-top-bar {
+    height: 20%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.my-side-bar {
+    float: left;
+    height: 80%;
+    width: 25%;
+    border-right: solid black 3px;
+}
+
+.my-main-context {
+    float: right;
+    height: 80%;
+    width: 75%;
+}
+
+.my-photo {
+    position: relative;
+    margin: 12px 10px;
+    float: left;
+    width: 10%;
+    height: 80%;
+    background-image: url("/myChat/asserts/images/default.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.my-exit-btn {
+    float: right;
+    margin: 35px 20px;
+}
+
+.my-nickname {
+    position: relative;
+    float: left;
+    margin: 10px 10px;
+}
+
+.my-nickname span {
+    position: relative;
+    top: 5px;
+    color: orange;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.my-search-bar {
+    border-bottom: dashed black 2px;
+}
+
+.my-search-input {
+    margin: 10px auto;
+    width: 90%;
+    border-radius: 5px;
+}
+
+.my-page {
+    margin: 10px auto 0;
+    width: 100%;
+}
+
+.my-chat-pages {
+    height: 88%;
+    overflow-y: scroll;
+}
+
+.my-chat-room {
+    height: 70%;
+    float: top;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+.my-input-box {
+    height: 30%;
+    float: bottom;
+    border-top: solid black 3px;
+    opacity: 100%;
+    background-color: rgba(255,165,0,0.7);
+}
+
+.my-textarea {
+    margin: 2.5% 0 2.5% 2.5%;
+    width: 80%;
+    float: left;
+    overflow-y: scroll;
+    resize: none;
+}
+
+#send_btn {
+    position: relative;
+    margin: auto;
+    top: 37%;
+}

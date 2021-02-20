@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${#session.getAttribute('username') + '的空间'}"></title>
+
+    <script th:src="@{/asserts/js/jquery-2.1.4.min.js}"></script>
+    <script th:src="@{/asserts/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/asserts/css/bootstrap.min.css}">
+
+    <link rel="stylesheet" th:href="@{/asserts/css/main.css}">
+    <script th:src="@{/asserts/js/main.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/asserts/css/font-awesome.css}">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+</head>
+<body>
+<div id="back">
+    <div class="center">
+        <div class="box center">
+            <div class="my-top-bar">
+                <input type="button" id="photo_btn" class="my-photo" onclick="upload_photo()" value="">
+                <input type="file" id="user_photo" accept="image/gif image/jpeg image/jpg image/png" hidden="hidden">
+                <div class="my-nickname">
+                    <span id="user-name-label" th:text="${#session.getAttribute('username')}"></span>
+                </div>
+                <input type="button" class="btn btn-danger btn-large my-exit-btn" value="登出" onclick="logout()">
+            </div>
+            <div class="my-side-bar">
+                <!--搜索好友-->
+                <div class="my-search-bar">
+                    <input type="text" class="form-control my-search-input" id="search_input">
+                </div>
+                <div class="my-chat-pages">
+                    <div id="my-chat-list"></div>
+                </div>
+            </div>
+            <div class="my-main-context">
+                <!--聊天室、输入框-->
+                <div class="my-chat-room" id="my_chat_room">
+                    <div class="my-card" style="padding: 0; max-width: 80%; margin: 10px 20px">
+                        <div class="card text-left">
+                            <div class="card-header">ahy231：</div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-card" style="padding: 0; max-width: 80%; margin: 10px 20px">
+                        <div class="card text-left">
+                            <div class="card-header">ahy231：</div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-card" style="padding: 0; max-width: 80%; margin: 10px 20px">
+                        <div class="card text-left">
+                            <div class="card-header">ahy231：</div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                    Hello world!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-input-box">
+                    <textarea class="my-textarea form-control" style="height: 80%" id="my_textarea"></textarea>
+                    <input type="button" class="btn btn-success btn-large disabled" value="发送" onclick="send(document.getElementById('my_textarea').value)"
+                           id="send_btn" disabled="disabled">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

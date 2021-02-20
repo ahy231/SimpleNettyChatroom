@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>出错了！</title>
+</head>
+<body>
+    <h1>出错了！</h1>
+    <p>对不起，虽然我们很小心地赶走了大部分Bug，但它还是出现了</p>
+    <p th:text="${'错误信息：' + msg}"></p>
+</body>
+</html>
