@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @Log4j2
 @Controller
@@ -40,10 +38,11 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(HttpServletRequest request, String username, String password, RedirectAttributes attr) throws ServletException, IOException {
+    public String login(HttpServletRequest request, String username, String password, RedirectAttributes attr) throws Exception {
         HttpSession session = request.getSession();
         session.setAttribute("username", username);
         attr.addFlashAttribute("password", password);
+//        throw new Exception("错误测试");
         return "redirect:/user/main.html";
     }
 }

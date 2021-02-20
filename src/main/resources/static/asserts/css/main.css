@@ -21,7 +21,6 @@
 .my-top-bar {
     height: 20%;
     width: 100%;
-    /*border: solid black 3px;*/
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -36,8 +35,6 @@
     float: right;
     height: 80%;
     width: 75%;
-    /*border: solid black 3px;*/
-    /*background-color: rgba(255,165,0,0.7);*/
 }
 
 .my-photo {
@@ -61,10 +58,8 @@
 
 .my-nickname {
     position: relative;
-    /*left: 28%;*/
     float: left;
     margin: 10px 10px;
-    /*padding: 5px 0;*/
 }
 
 .my-nickname span {
@@ -98,7 +93,8 @@
 .my-chat-room {
     height: 70%;
     float: top;
-    background-color: rgba(255,165,0,0.7);
+    background-color: transparent;
+    overflow-y: scroll;
 }
 
 .my-input-box {
@@ -106,14 +102,19 @@
     float: bottom;
     border-top: solid black 3px;
     opacity: 100%;
+    background-color: rgba(255,165,0,0.7);
 }
 
 .my-textarea {
-    margin: auto;
-    height: 100%;
-    width: 90%;
+    margin: 2.5% 0 2.5% 2.5%;
+    width: 80%;
+    float: left;
     overflow-y: scroll;
     resize: none;
-    border: none;
-    outline: none;
+}
+
+#send_btn {
+    position: relative;
+    margin: auto;
+    top: 37%;
 }

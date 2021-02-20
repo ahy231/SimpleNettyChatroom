@@ -80,10 +80,12 @@ public class UserController {
         return jsonArray;
     }
 
-    private JSONObject packageUserAsJson(User user) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", user.getName());
-        jsonObject.put("phone", user.getPhone());
-        return jsonObject;
+    @ResponseBody
+    @PostMapping("/send")
+    public String send(String username, String text, String to) {
+        System.out.println("username: " + username);
+        System.out.println("text: " + text);
+        System.out.println("to: " + to);
+        return "OK";
     }
 }
